@@ -195,7 +195,7 @@ void tri3S (double *N, const double *t)
 // 4---3
 // |   |
 // 1---2
-void __quad1 (double *N, const double *t, const double *L1, const double *L2)
+static void __quad1 (double *N, const double *t, const double *L1, const double *L2)
 {
 	N [0] = L1 [0] * L2 [0];
 	N [1] = L1 [1] * L2 [0];
@@ -233,7 +233,7 @@ void dquad1 (double *N, const double *t)
 // 8  9  6
 // |     |
 // 1--5--2
-void __quad2L (double *N, const double *t, const double *L1, const double *L2)
+static void __quad2L (double *N, const double *t, const double *L1, const double *L2)
 {
 	N [0] = L1 [0] * L2 [0];
 	N [1] = L1 [2] * L2 [0];
@@ -276,7 +276,7 @@ void dquad2L (double *N, const double *t)
 // 12  13  14  7
 //  |          |
 //  1---5---6--2
-void __quad3L (double *N, const double *t, const double *L1, const double *L2)
+static void __quad3L (double *N, const double *t, const double *L1, const double *L2)
 {
 	N [ 0] = L1 [0] * L2 [0];
 	N [ 1] = L1 [3] * L2 [0];
@@ -324,7 +324,7 @@ void dquad3 (double *N, const double *t)
 //	この方法は合理的だが、使用者がほとんど見当たらないのが謎。
 //	一次要素はラグランジュ要素と同じなので割愛。
 
-void __quad2S (double *N, const double *t, const double *L1, const double *L2, double L12, double L22)
+static void __quad2S (double *N, const double *t, const double *L1, const double *L2, double L12, double L22)
 {
 	// 中間節点の形状関数。
 	N [4] = L12    * L2 [0];
@@ -373,7 +373,7 @@ void quad2S (double *N, const double *t)
 	__quad2S  (N + 8, t, L1, L2, L21 [1], L22 [1]);
 }
 
-void __quad3S (double *N, const double *t, const double *L1, const double *L2, const double *L13, const double *L23)
+static void __quad3S (double *N, const double *t, const double *L1, const double *L2, const double *L13, const double *L23)
 {
 	// 中間節点の形状関数。
 	N [ 4] = L13 [1] * L2  [0];
