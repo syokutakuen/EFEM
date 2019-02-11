@@ -5,7 +5,7 @@
 #include "typedef.h"
 #include "datadef.h"
 #include "shapefunc.h"
-#include "integral_data.h"
+#include "integral.h"
 
 //MODULE INIT_ELEMENT_INFO
 /*
