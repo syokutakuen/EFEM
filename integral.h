@@ -41,4 +41,19 @@ EXTERN double *ine1K_weight;
 EXTERN double Line2K_intpt [];
 EXTERN double Line2K_intpt [];
 
+//
+EXTERN double TriaEdge1_intpt [];
+EXTERN double TriaEdge2_intpt [];
+EXTERN double TriaEdge3_intpt [];
+EXTERN double QuadEdge1_intpt [];
+EXTERN double QuadEdge2_intpt [];
+
+//  面情報データー
+EXTERN int FINFO_Tria1 [];
+EXTERN int FINFO_Tria2 [];
+EXTERN int FINFO_Tria3 [];
+EXTERN int FINFO_Quad1 [];
+EXTERN int FINFO_Quad2 [];
+EXTERN int FINFO_Quad3 [];
+
 #endif
