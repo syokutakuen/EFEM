@@ -2,8 +2,12 @@
 //方程式の求解ルーチン
 //
 
+#include <stdio.h>
+#include <math.h>
+
 #include "typedef.h"
 #include "datadef.h"
+#include "memfree.h"
 
 //  ンドマトリックス形式の方程式を解く
 void solve_band_mat (double tol)
@@ -50,5 +54,4 @@ void solve_band_mat (double tol)
 		line_info [i].p [i] /= pivot;
 		//fprintf (stderr, "%5d%15g%15g\n", i, rhs_value [i], pivot);
 	}
-	dump_bc (OFF);
 }
