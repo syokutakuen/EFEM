@@ -105,7 +105,8 @@ typedef struct {
 	int number;
 	char *name;
 	int nvert, nface;  // 要素あたりの節点数、頂点(隅節点)の数、表面の数
-	ElemIntegralInfo *info1, *info2, *info3; // 要素全体と表面の計算情報
+	ElemIntegralInfo *info1, *info2, *info3, *info4; // 要素全体と表面の計算情報
+	int *edge_list;
 } ElementInfo;
 
 /* 計算情報データー。構造解析に特化したデーターの組み方をしているが、それ以外にも使用可能である。 */
