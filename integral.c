@@ -100,7 +100,7 @@ double Line2K_intpt [] = {
 #define SQRT_2 1.4142135623730950488016887242097
 #define CVT_PT1(x) (SQRT_2*((x)+1)/2)
 #define CVT_PT2(x) (((x)+1)/2)
-static double TrE1_it [] = {
+double TriaEdge1_intpt [] = {
 //      t1                 t2                    t3
 	CVT_PT1(-__LL1_it), CVT_PT1( __LL1_it), // 0
 	CVT_PT1( __LL1_it), CVT_PT1(-__LL1_it), // 0
@@ -109,7 +109,7 @@ static double TrE1_it [] = {
 	CVT_PT2(-__LL1_it), 0.0,                // CVT_PT2( __LL1_it)
 	CVT_PT2( __LL1_it), 0.0,                // CVT_PT2(-__LL1_it)
 };
-static double TrE2_it [] = {
+static double TriaEdge2_intpt [] = {
 //      t1                 t2                    t3
 	CVT_PT1(-__LL2_it), CVT_PT1( __LL2_it), // 0
 	0.5,                0.5,                // 0
@@ -121,7 +121,7 @@ static double TrE2_it [] = {
 	0.0,                0.5,                // 0.5
 	CVT_PT2( __LL2_it), 0.0,                // CVT_PT2( __LL2_it)
 };
-static double TrE3_it [] = {
+static double TriaEdge3_intpt [] = {
 //      t1                 t2                    t3
 	CVT_PT1(-__LL3_it1), CVT_PT1( __LL3_it1), // 0
 	CVT_PT1( __LL3_it2), CVT_PT1(-__LL3_it2), // 0
@@ -137,23 +137,50 @@ static double TrE3_it [] = {
 	CVT_PT2( __LL3_it1), 0.0,                 // CVT_PT2(-__LL3_it1)
 };
 
-static double QE1_it [] = {
+double QuadEdge1_intpt [] = {
 	-__LL1_it, -1,         __LL1_it, -1,
 	 1,        -__LL1_it,  1,         __LL1_it,
 	-__LL1_it,  1,         __LL1_it,  1,
 	-1,        -__LL1_it, -1,         __LL1_it,
 };
-static double QE2_it [] = {
+
+double QuadEdge2_intpt [] = {
 	-__LL2_it, -1,         0, -1,  __LL2_it, -1,
 	 1,         __LL2_it,  1,  0,  1,         __LL2_it,
 	-__LL2_it,  1,         0,  1,  __LL2_it,  1,
 	-1,         __LL2_it, -1,  0, -1,         __LL2_it,
 };
-static double QE3_it [] = {
+
+double QuadEdge3_intpt [] = {
 	-__LL3_it1, -1,         -__LL3_it2, -1,          __LL3_it2, -1,          __LL3_it1, -1,
 	-1,         -__LL3_it1, -1,         -__LL3_it1, -1,          __LL3_it1, -1,          __LL3_it1,
 	-__LL3_it1,  1,         -__LL3_it2,  1,          __LL3_it2,  1,          __LL3_it1,  1,
 	 1,         -__LL3_it1,  1,         -__LL3_it1,  1,          __LL3_it1,  1,          __LL3_it1,
+};
+
+/*
+ * 面情報データー
+ */
+// static int _FINFO_L1 [] = { 0, 1, };
+// static int _FINFO_L2 [] = { 0, 1, 2, };
+// static int _FINFO_L3 [] = { 0, 1, 2, 3, };
+int FINFO_Tria1 [] = {
+	0, 1,  1, 2,  2, 0,
+};
+int FINFO_Tria2 [] = {
+	0, 3, 1,  1, 4, 2,  2, 5, 0,
+};
+int FINFO_Tria3 [] = {
+	0, 3, 4, 1,  1, 5, 6, 2,  2, 0, 7, 8, 0,
+};
+int FINFO_Quad1 [] = {
+	0, 1,  1, 2,  2, 3,  3, 0,
+};
+int FINFO_Quad2 [] = {
+	0, 4, 1,  1, 5, 2,  2, 6, 3,  3, 7, 0,
+};
+int FINFO_Quad3 [] = {
+	0, 4, 5, 1,  1, 6, 7, 2,  2, 8, 9, 3,  3, 10,11, 0,
 };
 
 
