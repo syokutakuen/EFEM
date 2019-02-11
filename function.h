@@ -12,7 +12,7 @@ void calc_K_mat (FILE *fout);
 // setup_mech_bc.c
 void calc_load ();
 
-//
+// solve_Kmat.c
 void solve_band_mat (double tol);
 
 //
