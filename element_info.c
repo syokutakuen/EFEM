@@ -45,25 +45,28 @@ ElemIntegralInfo eiinfo [] = {
 };
 
 ElementInfo einfo [] = {
-/*        num name    vert face info1         info2         info3 */
-	{  0, NULL,      0,  0,  NULL,         NULL,         NULL,        },
-	{  1, "Tria1",   3,  3,  &eiinfo [ 4], NULL,         &eiinfo [1], },
-	{  2, "Tria2",   3,  3,  &eiinfo [ 5], NULL,         &eiinfo [2], },
-	{  3, "Tria3L",  3,  3,  &eiinfo [ 6], NULL,         &eiinfo [3], },
-	{  4, "Tria3S",  3,  3,  &eiinfo [ 7], NULL,         &eiinfo [3], },
-	{  5, "Quad1",   4,  4,  &eiinfo [ 8], NULL,         &eiinfo [1], },
-	{  6, "Quad2L",  4,  4,  &eiinfo [ 9], NULL,         &eiinfo [2], },
-	{  7, "Quad2S",  4,  4,  &eiinfo [10], NULL,         &eiinfo [2], },
-	{  8, "Quad3L",  4,  4,  &eiinfo [11], NULL,         &eiinfo [3], },
-	{  9, "Quad3S",  4,  4,  &eiinfo [12], NULL,         &eiinfo [3], },
-	{ 10, "Tria2R",  3,  3,  &eiinfo [13], NULL,         &eiinfo [2], },
-	{ 11, "Tria3LR", 3,  3,  &eiinfo [14], NULL,         &eiinfo [3], },
-	{ 12, "Tria3SR", 3,  3,  &eiinfo [15], NULL,         &eiinfo [3], },
-	{ 13, "Quad1R",  4,  4,  &eiinfo [16], NULL,         &eiinfo [1], },
-	{ 14, "Quad2LR", 4,  4,  &eiinfo [17], NULL,         &eiinfo [2], },
-	{ 15, "Quad2SR", 4,  4,  &eiinfo [18], NULL,         &eiinfo [2], },
-	{ 16, "Quad3LR", 4,  4,  &eiinfo [19], NULL,         &eiinfo [3], },
-	{ 17, "Quad3SR", 4,  4,  &eiinfo [20], NULL,         &eiinfo [3], },
+/*        num name    vert face info1         info2  edge_info   face_info      edge_data       */
+	{  0, NULL,      0,  0,  NULL,         NULL, NULL,       NULL,          NULL,       },
+	{  1, "Tria1",   3,  3,  &eiinfo [ 4], NULL, &eiinfo [1], &eiinfo [ 4], _FINFO_Tr1, },
+	{  2, "Tria2",   3,  3,  &eiinfo [ 5], NULL, &eiinfo [2], &eiinfo [ 5], _FINFO_Tr2, },
+	{  3, "Tria3L",  3,  3,  &eiinfo [ 6], NULL, &eiinfo [3], &eiinfo [ 6], _FINFO_Tr3, },
+	{  4, "Tria3S",  3,  3,  &eiinfo [ 7], NULL, &eiinfo [3], &eiinfo [ 7], _FINFO_Tr3, },
+	{  5, "Quad1",   4,  4,  &eiinfo [ 8], NULL, &eiinfo [1], &eiinfo [ 8], _FINFO_Q1,  },
+	{  6, "Quad2L",  4,  4,  &eiinfo [ 9], NULL, &eiinfo [2], &eiinfo [ 9], _FINFO_Q2,  },
+	{  7, "Quad2S",  4,  4,  &eiinfo [10], NULL, &eiinfo [2], &eiinfo [10], _FINFO_Q2,  },
+	{  8, "Quad3L",  4,  4,  &eiinfo [11], NULL, &eiinfo [3], &eiinfo [11], _FINFO_Q3,  },
+	{  9, "Quad3S",  4,  4,  &eiinfo [12], NULL, &eiinfo [3], &eiinfo [12], _FINFO_Q3,  },
+	{ 10, "Tria2R",  3,  3,  &eiinfo [13], NULL, &eiinfo [2], &eiinfo [ 5], _FINFO_Tr2, },
+	{ 11, "Tria3LR", 3,  3,  &eiinfo [14], NULL, &eiinfo [3], &eiinfo [ 6], _FINFO_Tr3, },
+	{ 12, "Tria3SR", 3,  3,  &eiinfo [15], NULL, &eiinfo [3], &eiinfo [ 7], _FINFO_Tr3, },
+	{ 13, "Quad1R",  4,  4,  &eiinfo [16], NULL, &eiinfo [1], &eiinfo [ 8], _FINFO_Q1,  },
+	{ 14, "Quad2LR", 4,  4,  &eiinfo [17], NULL, &eiinfo [2], &eiinfo [ 9], _FINFO_Q2,  },
+	{ 15, "Quad2SR", 4,  4,  &eiinfo [18], NULL, &eiinfo [2], &eiinfo [10], _FINFO_Q2,  },
+	{ 16, "Quad3LR", 4,  4,  &eiinfo [19], NULL, &eiinfo [3], &eiinfo [11], _FINFO_Q3,  },
+	{ 17, "Quad3SR", 4,  4,  &eiinfo [20], NULL, &eiinfo [3], &eiinfo [12], _FINFO_Q3,  },
+};
+
+
 };
 
 int netinfo = sizeof (etinfo) / sizeof (etinfo [0]);
