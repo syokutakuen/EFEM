@@ -1,7 +1,8 @@
 //	雑役関数群
 
+#include <stdlib.h>
 #include "typedef.h"
-#include "memory.h"
+#include "memfree.h"
 
 //	エラー報告関数
 //	エラー報告後、確保したメモリを開放する。
