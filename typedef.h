@@ -62,6 +62,19 @@ typedef struct {
 	int type;
 } GeomData;
 
+typedef GeomData PSN_GeomData;
+typedef GeomData AXSol_GeomData;
+
+// 平面応力問題用幾何特性値
+// 見ての通り板厚を追加しただけである。
+typedef struct {
+	int number;
+	char *name;
+	int type;
+	double thick;
+} PSS_GeomData;
+
+
 // パーツデーター。物性値と幾何特性値を持つ。要素から参照される。
 typedef struct {
 	int number;
