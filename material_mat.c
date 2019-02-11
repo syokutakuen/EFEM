@@ -1,3 +1,9 @@
+//
+//	初期剛性接線(弾性物性)行列の計算。
+//
+
+#include "typedef.h"
+
 void calc_De_Iso_PSS_Mat(double *De, const MatData *tab)
 {
 	IsoMatData *p = (IsoMatData *)tab;
