@@ -1,6 +1,10 @@
 //  IOルーチン群
 
-#include "memory.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <memory.h>
+#include "memfree.h"
 
 static int nline = 0;
 static char buffer [201];
