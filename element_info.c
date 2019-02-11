@@ -2,15 +2,15 @@
 //要素情報構造体関連のデーターとルーチンの定義
 //
 
+#include <stdlib.h>
+#include <memory.h>
+
 #include "typedef.h"
 #include "datadef.h"
 #include "shapefunc.h"
 #include "integral.h"
 
-//MODULE INIT_ELEMENT_INFO
-/*
- * 要素情報テーブルの定義
-*/
+//	要素情報テーブルの定義
 ElementTypeInfo etinfo [] = {
 	/* number   name                prob    dim dof stat scl add */
 	{ 0,        "None",             PT_None,  0,  0,   0,  0, 0, }, 
