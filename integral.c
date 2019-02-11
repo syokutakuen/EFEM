@@ -95,3 +95,65 @@ double Line2K_intpt [] = {
 	__QK2_wt1, __QK2_wt1, __QK2_wt1, __QK2_wt1,
 	__QK2_wt2, __QK2_wt2, __QK2_wt2, __QK2_wt2,
 };
+
+// 曲げ荷重をかけるときの辺における積分点位置
+#define SQRT_2 1.4142135623730950488016887242097
+#define CVT_PT1(x) (SQRT_2*((x)+1)/2)
+#define CVT_PT2(x) (((x)+1)/2)
+static double TrE1_it [] = {
+//      t1                 t2                    t3
+	CVT_PT1(-__LL1_it), CVT_PT1( __LL1_it), // 0
+	CVT_PT1( __LL1_it), CVT_PT1(-__LL1_it), // 0
+	0.0,                CVT_PT2( __LL1_it), // CVT_PT2(-__LL1_it)
+	0.0,                CVT_PT2(-__LL1_it), // CVT_PT2( __LL1_it)
+	CVT_PT2(-__LL1_it), 0.0,                // CVT_PT2( __LL1_it)
+	CVT_PT2( __LL1_it), 0.0,                // CVT_PT2(-__LL1_it)
+};
+static double TrE2_it [] = {
+//      t1                 t2                    t3
+	CVT_PT1(-__LL2_it), CVT_PT1( __LL2_it), // 0
+	0.5,                0.5,                // 0
+	CVT_PT1( __LL2_it), CVT_PT1(-__LL2_it), // 0
+	0.0,                CVT_PT2( __LL2_it), // CVT_PT2(-__LL2_it)
+	0.5,                0,                  // 0.5
+	0.0,                CVT_PT2(-__LL2_it), // CVT_PT2( __LL2_it)
+	CVT_PT2(-__LL2_it), 0.0,                // CVT_PT2(-__LL2_it)
+	0.0,                0.5,                // 0.5
+	CVT_PT2( __LL2_it), 0.0,                // CVT_PT2( __LL2_it)
+};
+static double TrE3_it [] = {
+//      t1                 t2                    t3
+	CVT_PT1(-__LL3_it1), CVT_PT1( __LL3_it1), // 0
+	CVT_PT1( __LL3_it2), CVT_PT1(-__LL3_it2), // 0
+	CVT_PT1(-__LL3_it2), CVT_PT1( __LL3_it2), // 0
+	CVT_PT1( __LL3_it1), CVT_PT1(-__LL3_it1), // 0
+	0.0,                 CVT_PT2( __LL3_it1), // CVT_PT2(-__LL3_it1)
+	0.0,                 CVT_PT2( __LL3_it2), // CVT_PT2(-__LL3_it2)
+	0.0,                 CVT_PT2(-__LL3_it2), // CVT_PT2( __LL3_it2)
+	0.0,                 CVT_PT2(-__LL3_it1), // CVT_PT2( __LL3_it1)
+	CVT_PT2(-__LL3_it1), 0.0,                 // CVT_PT2( __LL3_it1)
+	CVT_PT2(-__LL3_it2), 0.0,                 // CVT_PT2( __LL3_it2)
+	CVT_PT2( __LL3_it2), 0.0,                 // CVT_PT2(-__LL3_it2)
+	CVT_PT2( __LL3_it1), 0.0,                 // CVT_PT2(-__LL3_it1)
+};
+
+static double QE1_it [] = {
+	-__LL1_it, -1,         __LL1_it, -1,
+	 1,        -__LL1_it,  1,         __LL1_it,
+	-__LL1_it,  1,         __LL1_it,  1,
+	-1,        -__LL1_it, -1,         __LL1_it,
+};
+static double QE2_it [] = {
+	-__LL2_it, -1,         0, -1,  __LL2_it, -1,
+	 1,         __LL2_it,  1,  0,  1,         __LL2_it,
+	-__LL2_it,  1,         0,  1,  __LL2_it,  1,
+	-1,         __LL2_it, -1,  0, -1,         __LL2_it,
+};
+static double QE3_it [] = {
+	-__LL3_it1, -1,         -__LL3_it2, -1,          __LL3_it2, -1,          __LL3_it1, -1,
+	-1,         -__LL3_it1, -1,         -__LL3_it1, -1,          __LL3_it1, -1,          __LL3_it1,
+	-__LL3_it1,  1,         -__LL3_it2,  1,          __LL3_it2,  1,          __LL3_it1,  1,
+	 1,         -__LL3_it1,  1,         -__LL3_it1,  1,          __LL3_it1,  1,          __LL3_it1,
+};
+
+
