@@ -4,6 +4,10 @@
 
 //多重定義の禁止
 #if !defined (__TYPE_DEF_H__)
+#define __TYPE_DEF_H__
+
+/* 問題番号。列挙体とすることで分かりやすくした。 */
+enum { PT_None=0, PT_PSS, PT_PSN, PT_AXSOL, };
 
 //	物性値の型
 enum {
@@ -159,6 +163,16 @@ typedef struct {
 	SetData *set;			// セット。名前は使わない。
 } LoadData;
 
-#else
-#define __TYPE_DEF_H__
+/* 全体剛性マトリックスの数値格納方法：無効、フルマトリックス、バンドマトリックス、対称行列(上側のみ) */
+enum { RANGE_NONE, RANGE_ALL, RANGE_BEGIN_END, RANGE_SYMM_UPPER, };
+
+/* 拘束の状態。順に、拘束なし、0以外で拘束、0で拘束、構造物と接続していない節点 */
+enum { KLDOF_NONE, KLDOF_NONZERO, KLDOF_ZERO, KLDOF_ORPHAN, };
+
+/* ライン情報構造体。全体剛性の情報を格納する */
+typedef struct {
+	int pos, start, end, size;	/* 始点と終点の次の位置とサイズ */
+	double *p;
+} K_line_info;
+
 #endif
