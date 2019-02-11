@@ -9,7 +9,7 @@ void init_einfo ();
 void create_K_info (FILE *fout);
 void calc_K_mat (FILE *fout);
 
-//
+// setup_mech_bc.c
 void calc_load ();
 
 //
