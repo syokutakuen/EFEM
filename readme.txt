@@ -14,6 +14,37 @@ EFEM:線形弾性解析のためのプログラム。名前はEasy-FEM Program�
   等方性物体のみ使用可能。
 　節点荷重と偏荷重・体積力が使用可能。
   通常の拘束変位の他、強制変位を掛けることが可能。
-　全体剛性行列は上三角のみ使用したものを解く。ハードコードしているのはエレガントじゃないなー・
+　全体剛性行列は上三角のみ使用したものを解く。ハードコードしているのはエレガントじゃないなー。
+
+ソースコード内容
+　元々は一つのプログラムだったものを分割した。この最中にヘッダーファイルを作成している。
+	main.c		主関数
+	beta_mat.c	Bマトリックス作成ルーチン 
+	calc_result.c	結果の計算を行う
+	data_io.c	データーの入出力
+	element_info.c	要素情報の定義
+	integral.c	積分点情報の定義
+	material_mat.c	物性マトリックスの計算
+	memfree.c	メモリ開放ルーチン群
+	misc.c		雑役関数
+	setup_mech_bc.c
+			機械的境界条件の定義
+	setup_total_K_mat.c	
+			全体剛性のセットアップ
+	shapefunc.c	形状関数の定義
+	solve_Kmat.c	方程式の求解ルーチン
+　ヘッダーファイルはソースファイルと対応する名前のものは、ほぼ関数の宣言を行っているだけである。
+　typedef.hとdatadef.hの二つは特別で、プログラムを実行するために重要な型定義と大域変数定義を含んでいる。
+	typedef.h	型定義
+	datadef.h	データー定義
+	beta_mat.h	
+	data_io.h	
+	function.h	
+	integral.h	
+	material_mat.h	
+	memfree.h	
+	misc.h		
+	shapefunc.h		
+
 
 
